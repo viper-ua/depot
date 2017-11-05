@@ -8,6 +8,6 @@ class Product < ApplicationRecord
 	}
 	validates :title, length: {
 		minimum: 10,
-		too_short: proc {|object, data| "is too short, #{data[:value].length} chars, when minimum is 10"}
+		too_short: "too short, minimum is %{count}"
 	}
 end
