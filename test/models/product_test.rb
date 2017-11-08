@@ -21,7 +21,7 @@ class ProductTest < ActiveSupport::TestCase
   test "product price must be positive" do
     product = Product.new(title:       "My Book Title",
                           description: "yyy",
-                          image_url:   "zzz.jpg")
+                          image_url:   "7apps.jpg")
     product.price = -1
     assert product.invalid?
     assert_equal ["must be greater than or equal to 0.01"],
@@ -44,8 +44,7 @@ class ProductTest < ActiveSupport::TestCase
   end
 
   test "image url" do
-    ok = %w{ fred.gif fred.jpg fred.png FRED.JPG FRED.Jpg
-             http://a.b.c/x/y/z/fred.gif }
+    ok = %w{ 7apps.jpg adrpo.jpg dcbang.jpg rails.png }
     bad = %w{ fred.doc fred.gif/more fred.gif.more }
     
     ok.each do |name|
@@ -61,7 +60,7 @@ class ProductTest < ActiveSupport::TestCase
     product = Product.new(title:       products(:ruby).title,
                           description: "yyy", 
                           price:       1, 
-                          image_url:   "fred.gif")
+                          image_url:   "rails.png")
 
     assert product.invalid?
     assert_equal ["has already been taken"], product.errors[:title]
@@ -71,7 +70,7 @@ class ProductTest < ActiveSupport::TestCase
     product = Product.new(title:       products(:ruby).title,
                           description: "yyy", 
                           price:       1, 
-                          image_url:   "fred.gif")
+                          image_url:   "rails.png")
 
     assert product.invalid?
     assert_equal [I18n.translate('errors.messages.taken')],
