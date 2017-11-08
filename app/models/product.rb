@@ -12,6 +12,7 @@ class Product < ApplicationRecord
 		minimum: 10,
 		too_short: "too short, minimum is %{count}"
 	}
+	validate :img_must_exist
 
 	private
 
@@ -20,5 +21,9 @@ class Product < ApplicationRecord
 				errors.add(:base, 'Lines Items Present')
 				throw :abort
 			end
+		end
+
+		def img_must_exist
+			errors.add(:image_url, 'Image file must exist') unless Rails.application.assets.find_asset image_url 
 		end
 end
