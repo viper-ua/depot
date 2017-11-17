@@ -64,3 +64,6 @@ es:
       submit:       "Realizar Pedido"
 
   thanks:          "Gracias por su pedido"
+  Check:        "Cheque"
+  Credit_card:  "Tarjeta de crédito"
+  Purchase_order: "Orden de compra"

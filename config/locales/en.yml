@@ -81,3 +81,6 @@ en:
       submit:       "Place Order"
 
   thanks:          "Thank you for your order"
+  Check:        "Check"
+  Credit_card:  "Credit Card"
+  Purchase_order: "Purchase Order"
