@@ -15,15 +15,19 @@ domain = '172.16.1.15'
 #set :rvm_ruby_string, 'ruby-2.3.3'
 
 # file paths
+
+#set :scm, :git
+#set :user, 'viper'
 set :application, 'depot'
 set :repo_url, "#{user}@#{domain}:git/#{fetch(:application)}.git" 
 set :deploy_to, "/home/#{user}/#{fetch(:application)}" 
 
 # distribute your applications across servers (the instructions below put them
 # all on the same server, defined above as 'domain', adjust as necessary)
-role :app, domain
-role :web, domain
-role :db, domain
+server domain, user: 'viper', roles: %w{web app db}
+#role :app, domain
+#role :web, domain
+#role :db, domain
 
 # you might need to set this if you aren't seeing password prompts
 # or are seeing errors like 'no tty present and no askpass program specified'
